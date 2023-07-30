@@ -1,5 +1,5 @@
 
-##Files
+## Files ##
 
 main.rb - the amin execution loop
 client.rb - the client object
@@ -10,22 +10,24 @@ search.rb - the search interface
 client_spec.rb
 search_spec.rb - Test files for client and search
 
-##To run:
+## To run: ##
 
-`ruby main.rb`. Instructions are printed to screen
+`ruby main.rb`
+Instructions are printed to screen
 
-##To test:
+## To test: ##
 `ruby client_spec.rb`
+
 `ruby search_spec.rb`
 
-##Notes:
+## Notes: ##
 My approach is to do the simplest thing that can possibly work, and refine it from there.
 I start with a few basic assumptions, and adjust where required as the project unfolds.
 
 I've tried to keep my commits frequent so you can see it progressing.
 
 
-Example output:
+### Example output: ###
 ```
 $ ruby main.rb
 "Commands are load, search. Anything else quits."
@@ -37,7 +39,7 @@ ane
 ```
 
 
-Assumptions:
+## Assumptions: ##
 
 Search through all clients and return those with names partially matching a given
 search query
