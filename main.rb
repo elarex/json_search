@@ -17,6 +17,14 @@ class Crm
         filename = readline().strip
         clients = Client.load(filename)
       when 'search'
+        search = Search.new(list: clients)
+        input = readline()
+        results = search.find(input.downcase.strip)
+        results.each do |result|
+          p "match found: #{result.to_s}"
+        end
+
+        p "No results found" unless results.any?
       else
         return
       end
