@@ -27,8 +27,17 @@ class Crm
         results.each do |result|
           p "match found: #{result.to_s}"
         end
-      else
+      when 'bye'
         return
+      else
+        search = Search.new(list: clients)
+        # not very efficient, but I didn't want to leak acstraction into the search class. Main knowing about what clients are is fine.
+        results = search.find(key: :full_name, query: cmd.downcase.strip)
+        results += search.find(key: :email, query: cmd.downcase.strip)
+        results.uniq!
+        results.each do |result|
+          p "match found: #{result.to_s}"
+        end
       end
       instructions()
     end
@@ -37,7 +46,7 @@ class Crm
   private
 
   def self.instructions
-    p "Commands are load, search. Anything else quits."
+    p "Commands are load, search, bye. Anything else searches broadly"
   end
 
 end
