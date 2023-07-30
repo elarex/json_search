@@ -1,5 +1,6 @@
-class Client
+require "json"
 
+class Client
   # attrs defined in the json.
   attr_accessor :id, :full_name, :email
 
@@ -14,4 +15,14 @@ class Client
       "#{k}: #{self.send(k)}"
     }.join(', ')
   end
+
+  # load from json
+  def self.load(filename)
+    loaded = JSON.parse(File.read(filename))
+    loaded.map do |client_record|
+      self.new
+    end
+    p "loaded"
+  end
+
 end

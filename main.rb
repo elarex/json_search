@@ -5,7 +5,7 @@ require "./search.rb"
 class Crm
 
   def self.run()
-    p "hello"
+    Client.load('clients.json')
   end
 
 
