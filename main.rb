@@ -19,6 +19,7 @@ class Crm
       else
         return
       end
+      instructions()
     end
   end
 
