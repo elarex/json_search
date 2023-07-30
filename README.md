@@ -23,3 +23,15 @@ My approach is to do the simplest thing that can possibly work, and refine it fr
 I start with a few basic assumptions, and adjust where required as the project unfolds.
 
 I've tried to keep my commits frequent so you can see it progressing.
+
+
+Example output:
+```
+$ ruby main.rb
+"Commands are load, search. Anything else quits."
+search
+ane
+"match found: id: 2, full_name: Jane Smith, email: jane.smith@yahoo.com"
+"match found: id: 15, full_name: Jane Smith, email: jane.smith@gmail.com"
+"Commands are load, search. Anything else quits."
+```
