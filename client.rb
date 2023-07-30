@@ -17,9 +17,9 @@ class Client
   # a way to see what we are dealing with
   def to_s
     # TODO: see if there is a dynamic way to do this.
-    [:id, :full_name, :email].map{|k|
-      "#{k}: #{self.send(k)}"
-    }.join(', ')
+    [:id, :full_name, :email].map{|key|
+      "#{key}: #{self.send(key)}"
+    }.join(", ")
   end
 
   # load from json
