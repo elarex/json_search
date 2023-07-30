@@ -25,8 +25,9 @@ describe Client do
 
   describe ".to_s" do
     it "joins the attributes" do
-      client = Client.new()
-      expected = "id: , full_name: , email: "
+      example = {id: 1, full_name: "test", email: "email@example.com"}
+      client = Client.new(example)
+      expected = "id: 1, full_name: test, email: email@example.com"
       expect(client.to_s).to eq(expected)
     end
   end
