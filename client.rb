@@ -25,12 +25,9 @@ class Client
   # load from json
   def self.load(filename)
     loaded = JSON.parse(File.read(filename))
-    results = loaded.map do |client_record|
+    loaded.map do |client_record|
       self.new(client_record)
     end
-    p "loaded:"
-    p results
-    results
   end
 
 end
