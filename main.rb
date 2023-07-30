@@ -16,6 +16,7 @@ class Crm
         p "Please specify the JSON filename to load"
         filename = readline().strip
         clients = Client.load(filename)
+        p "loaded #{clients.length} records..."
       when 'search'
         search = Search.new(list: clients)
         p "Search syntax is key:value e.g. full_name:Jane"
