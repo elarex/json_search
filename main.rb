@@ -18,13 +18,14 @@ class Crm
         clients = Client.load(filename)
       when 'search'
         search = Search.new(list: clients)
+        p "Search syntax is key:value e.g. full_name:Jane"
         input = readline()
-        results = search.find(input.downcase.strip)
+        key, query = input.split(":")
+
+        results = search.find(key: key.downcase.strip, query: query.downcase.strip)
         results.each do |result|
           p "match found: #{result.to_s}"
         end
-
-        p "No results found" unless results.any?
       else
         return
       end

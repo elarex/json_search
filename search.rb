@@ -6,9 +6,9 @@ class Search
     self.dataset = list
   end
 
-  def find(query)
-    if valid_key?(:full_name)
-      return find_by(key: :full_name, query: query)
+  def find(key: , query:)
+    if valid_key?(key)
+      return find_by(key: key, query: query)
     end
     []
   end
