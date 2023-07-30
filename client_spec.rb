@@ -31,4 +31,25 @@ describe Client do
     end
   end
 
+  describe "#load" do
+    it "reads the input file" do
+      expect(File).to receive(:read).and_call_original
+      Client.load('clients.json')
+    end
+
+    it "parses a json content" do
+      expect(JSON).to receive(:parse).and_call_original
+      Client.load('clients.json')
+    end
+
+    it "returns a list of clients" do
+      expect(Client.load('clients.json').length).to be > 0
+    end
+  end
+
+  describe "#parse_json" do
+    it "returns [] if the file is missing or invalid" do
+      expect(Client.send(:parse_json, 'bogus.json')).to eq([])
+    end
+  end
 end
