@@ -5,7 +5,13 @@ class Client
   attr_accessor :id, :full_name, :email
 
   # we will likely need one
-  def initializer()
+  def initialize(attrs={})
+    if attrs.is_a?(Hash)
+      converted = attrs.transform_keys(&:to_sym)
+      self.id = converted[:id]
+      self.full_name = converted[:full_name]
+      self.email = converted[:email]
+    end
   end
 
   # a way to see what we are dealing with
@@ -19,10 +25,12 @@ class Client
   # load from json
   def self.load(filename)
     loaded = JSON.parse(File.read(filename))
-    loaded.map do |client_record|
-      self.new
+    results = loaded.map do |client_record|
+      self.new(client_record)
     end
-    p "loaded"
+    p "loaded:"
+    p results
+    results
   end
 
 end

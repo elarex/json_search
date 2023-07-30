@@ -10,7 +10,17 @@ describe Client do
   end
 
   describe ".initializer" do
-    it ""
+    it "takes an optional set of attributes" do
+      expect(Client.new()).to_not be_nil
+    end
+
+    it "sets the attributes provided" do
+      example = {id: 1, full_name: "test", email: "email@example.com"}
+      client = Client.new(example)
+      expect(client.full_name).to eq(example[:full_name])
+      expect(client.email).to eq(example[:email])
+      expect(client.id).to eq(example[:id])
+    end
   end
 
   describe ".to_s" do
