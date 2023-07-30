@@ -17,7 +17,13 @@ class Search
 
   def find_by(key:, query:)
     matches = self.dataset.select{ |entry|
-      entry.send(key).downcase.include?(query)
+      value = entry.send(key)
+      # deal with different types
+      if value.is_a?(String)
+        value.downcase.include?(query)
+      elsif value.is_a?(Integer)
+        value == query.to_i
+      end
     }
     return matches
   end
