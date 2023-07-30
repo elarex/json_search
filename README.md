@@ -1,14 +1,17 @@
 
 ## Files ##
 
-main.rb - the amin execution loop
-client.rb - the client object
-search.rb - the search interface
+`main.rb` - the amin execution loop
 
-.ruby_version - 3.0 at the time of writing
+`client.rb` - the client object
 
-client_spec.rb
-search_spec.rb - Test files for client and search
+`search.rb` - the search interface
+
+`client_spec.rb`
+
+`search_spec.rb` - Test files for client and search
+
+`.ruby_version` - 3.0 at the time of writing
 
 ## To run: ##
 
