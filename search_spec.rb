@@ -18,5 +18,16 @@ describe Search do
       expect(search.find('test')).to eq([])
     end
   end
+
+  describe ".find_by" do
+    it "compares partial strings" do
+      entry = Object.new
+      allow(entry).to receive(:full_name).and_return("something")
+      another = Object.new
+      allow(another).to receive(:full_name).and_return("something else")
+      search = Search.new(list: [entry, another])
+      expect(search.send(:find_by, key: :full_name, query: "thing")).to eq([entry, another])
+    end
+  end
 end
 
