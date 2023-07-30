@@ -13,6 +13,7 @@ class Crm
     while (cmd = readline().strip)
       case cmd
       when 'load'
+        p "Please specify the JSON filename to load"
         filename = readline().strip
         clients = Client.load(filename)
       when 'search'
